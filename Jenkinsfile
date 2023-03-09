@@ -8,7 +8,7 @@ pipeline {
     stages {
 stage('Deploy') {
       agent {
-        sshagent(['react_app.pem'])
+        sshagent(credentials:['react_app.pem'])
       }
 
       steps {
