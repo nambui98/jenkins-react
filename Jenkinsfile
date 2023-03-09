@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage("Deploy") {
-            agent {
+            new_agent {
                 sshagent(credentials: ['jenkins-pem'])
                 label 'remote_host'
             }
