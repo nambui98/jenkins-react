@@ -13,8 +13,10 @@ stage('Deploy') {
 
       steps {
 
-        sshagent(credentials:['9994f0cc-647b-443e-9ff9-a0f5f4a77d1b'])
+        sshagent(credentials:['9994f0cc-647b-443e-9ff9-a0f5f4a77d1b']){
+
         sh "ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST} 'echo Hello World!'"
+        }
       }
     }
     //     stage("Build") {
