@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Build") {
             agent{
-                sshagent(['jenkins-pem']) {
+                sshagent(['react_app.pem']) {
                     sh 'echo Nam'
                     // sh "ssh ubuntu@ec2-18-191-212-104.us-east-2.compute.amazonaws.com 'echo Hello World'"
                 } 
