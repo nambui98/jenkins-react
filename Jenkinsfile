@@ -12,11 +12,13 @@ stage('Deploy') {
     //   }
 
       steps {
+sshagent(['react_app.pem']) {
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-191-212-104.us-east-2.compute.amazonaws.com echo "Hello World!"'
+                }
+        // sshagent(credentials:['9994f0cc-647b-443e-9ff9-a0f5f4a77d1b']){
 
-        sshagent(credentials:['9994f0cc-647b-443e-9ff9-a0f5f4a77d1b']){
-
-        sh "ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST} 'echo Hello World!'"
-        }
+        // sh "ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_HOST} 'echo Hello World!'"
+        // }
       }
     }
     //     stage("Build") {
