@@ -3,10 +3,9 @@ pipeline {
     stages {
         stage("Build") {
             agent{
-                sshagent (credentials: ['jenkins-pem']) {
-                    sh 'ssh -t -t ubuntu@ec2-18-191-212-104.us-east-2.compute.amazonaws.com -o StrictHostKeyChecking=no'
-                    label 'my-remote-label' 
-                }
+                sshagent(['jenkins-pem']) {
+                    sh "ssh ubuntu@ec2-18-191-212-104.us-east-2.compute.amazonaws.com 'echo Hello World'"
+                } 
             }
             steps {
                 sh "sudo npm install"
