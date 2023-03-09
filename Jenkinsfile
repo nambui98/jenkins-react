@@ -5,7 +5,7 @@ pipeline {
             agent{
                 sshagent(['jenkins-pem']) {
                     sh 'echo Nam'
-                    sh "ssh ubuntu@ec2-18-191-212-104.us-east-2.compute.amazonaws.com 'echo Hello World'"
+                    // sh "ssh ubuntu@ec2-18-191-212-104.us-east-2.compute.amazonaws.com 'echo Hello World'"
                 } 
             }
             steps {
