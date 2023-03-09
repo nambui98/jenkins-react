@@ -8,9 +8,12 @@ pipeline {
             }
         }
         stage("Deploy") {
-            new_agent {
-                sshagent(credentials: ['jenkins-pem'])
-                label 'remote_host'
+            agent {
+                // sshagent(credentials: ['jenkins-pem'])
+                new_agent{
+
+                    label 'remote_host'
+                }
             }
             steps {
                 sh "sudo rm -rf /var/www/jenkins-react-app"
