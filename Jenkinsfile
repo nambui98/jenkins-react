@@ -8,7 +8,7 @@ pipeline {
     stages {
 stage('Deploy') {
       agent {
-        sshagent(['jenkins-pem'])
+        sshagent(['react_app.pem'])
       }
 
       steps {
